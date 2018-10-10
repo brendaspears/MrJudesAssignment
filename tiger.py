@@ -1,7 +1,13 @@
 import pygame
-class Tiger():
+
+from pygame.sprite import Sprite
+
+class Tiger(Sprite):
+
     def __init__(self, ai_settings, screen):
+
         """Initialize the tiger and set its starting position."""
+        super(Tiger , self).__init__()
         self.screen = screen
         self.ai_settings = ai_settings
 
@@ -36,3 +42,7 @@ class Tiger():
     def blitme(self):
         """Draw the tiger at its current location."""
         self.screen.blit(self.image, self.rect)
+
+    def center_tiger(self):
+        self.rect.centerx = self.screen_rect.centerx
+        self.rect.bottom = self.screen_rect.bottom
